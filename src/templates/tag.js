@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import Grid from '../components/Grid'
 import Card from '../components/Card'
 // import Secondary from '../components/secondary'
-// import SEO from '../components/seo'
+ import SEO from '../components/seo'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
