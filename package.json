@@ -1,0 +1,61 @@
+{
+  "name": "ui.tkssharma.com",
+  "description": "Personal website running on Gatsby, React, and Node.js.",
+  "version": "5.0.9",
+  "author": "Tarun Sharma <tkssharma@live.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkssharma/ui.tkssharma.com"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "1.5.7",
+    "@mdx-js/react": "1.5.7",
+    "babel-plugin-styled-components": "1.10.7",
+    "gatsby": "^2.19.43",
+    "gatsby-image": "^2.2.43",
+    "gatsby-plugin-google-analytics": "2.1.37",
+    "gatsby-plugin-manifest": "^2.2.47",
+    "gatsby-plugin-mdx": "1.0.82",
+    "gatsby-plugin-offline": "^3.0.40",
+    "gatsby-plugin-react-helmet": "^3.1.23",
+    "gatsby-plugin-sharp": "^2.4.12",
+    "gatsby-plugin-styled-components": "3.1.20",
+    "gatsby-remark-images": "3.1.49",
+    "gatsby-source-filesystem": "^2.1.54",
+    "gatsby-transformer-sharp": "^2.3.18",
+    "lodash": "4.17.15",
+    "prism-react-renderer": "1.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^5.2.1",
+    "react-icons": "3.9.0",
+    "styled-components": "5.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "Tarun Sharma",
+    "tkssharma",
+    "dev",
+    "twitter",
+    "tutorials",
+    "tech",
+    "blog",
+    "articles",
+    "development"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "bugs": {
+    "url": "https://github.com/tkssharma/ui.tkssharma.com.git/issues"
+  },
+  "license": "CC-BY-NC-4.0"
+}
