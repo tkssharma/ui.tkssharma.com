@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
 import Card from '../components/Card'
 import Grid from '../components/Grid'
 import HeaderIntro from '../components/HeaderIntro'
@@ -75,7 +74,6 @@ const IndexPage = ({ data }) => {
   const { edges: tutorials } = data.allMdx
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
       <IntroHeader />
       <TitlePadding>
         <TitleWrapper>

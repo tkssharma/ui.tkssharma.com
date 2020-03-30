@@ -3,8 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Grid from '../components/Grid'
 import Card from '../components/Card'
-// import Secondary from '../components/secondary'
- import SEO from '../components/seo'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -12,11 +10,6 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      {/* <SEO title={`Tutorials tagged as ${tag}`} />
-      <Secondary>
-        <h1>{`${tag}`}</h1>
-        <p>Tutorials tagged as {`${tag}`}</p>
-      </Secondary> */}
 
       <Grid>
         {tutorials.map(({ node: tutorial }) => (

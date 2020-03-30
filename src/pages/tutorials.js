@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import Grid from '../components/Grid'
-// import SEO from '../components/seo'
 
 const TutorialsPage = ({ data }) => {
   const allTutorials = data.allMdx.edges
@@ -52,7 +51,6 @@ const TutorialsPage = ({ data }) => {
 
   return (
     <Layout>
-      {/* <SEO title="Blog" /> */}
       <Header>Articles</Header>
       <p style={{ fontSize: '18px' }}>
         A list of all posts I have written on Nodejs, Reactjs, GraphQL, React

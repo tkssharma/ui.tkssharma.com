@@ -8,7 +8,6 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Content from '../components/Content'
 import Code from '../components/Code'
-// import SEO from '../components/seo'
 import BlogPostFooter from '../components/BlogPostFooter'
 
 const Icon = styled.div`
@@ -38,12 +37,6 @@ const _ = require('lodash')
 const TutorialTemplate = ({ data: { mdx: tutorial } }) => {
   return (
     <Layout>
-      {/* <SEO
-        title={tutorial.frontmatter.title}
-        description={tutorial.lead}
-        image={tutorial.frontmatter.image.sharp.fluid}
-      /> */}
-
       <Hero>
         {tutorial.frontmatter.tags.map((tag, i) => (
           <Link
