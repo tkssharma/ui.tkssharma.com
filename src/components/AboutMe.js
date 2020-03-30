@@ -21,7 +21,7 @@ const AboutMe = () => (
       </span>
       About me
     </h3>
-    <h4>What I am up to</h4>
+    <h5>Trainer 👨‍🏫, Publisher 📕 & Mentor 🗣</h5>
     <p>
     I’m Tarun, I am Publisher, Trainer Developer, working on Enterprise and open source Technologies JavaScript frameworks (React Angular 2.x), I work with client side and server side javascript programming which includes node js or any other frameworks Currently working with JavaScript framework React & Node js 🚀 with Graphql 🎉 developer publications.
     </p>
@@ -72,5 +72,6 @@ const AboutMe = () => (
     </p>
   </Wrapper>
 )
+
 
 export default AboutMe
