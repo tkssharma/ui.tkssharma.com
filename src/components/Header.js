@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.div`
   flex-shrink: 0;
   background: none;
   margin: auto;
-  padding: 20px 0;
+  padding: 5px 0;
   background: ${props => props.theme.color.primary.purple};
   a {
     color: ${props => props.theme.color.light.accent100};
@@ -59,6 +59,14 @@ const Header = ({ siteTitle }) => (
         >
           Newsletter
         </a>
+        <a
+        href="https://tkssharma.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Profile"
+      >
+        Profile
+      </a>
         <a
           href="https://ko-fi.com/tkssharma"
           target="_blank"
