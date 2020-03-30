@@ -2,6 +2,10 @@ const config = require('./src/config/siteMetaData')
 
 module.exports = {
   pathPrefix: config.pathPrefix,
+  plugins: [`gatsby-plugin-sitemap`],
+  siteMetadata: {
+    siteUrl: urljoin(config.siteUrl, config.pathPrefix)
+  },
   siteMetadata: {
     title: config.siteTitle,
     description: config.siteDescription,
@@ -20,6 +24,7 @@ module.exports = {
     }
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
