@@ -69,9 +69,9 @@ const BlogPostFooter = () => (
     </FlexAvatar>
     <div>
       <FlexText>
-        I'm <strong style={{ color: 'white' }}>Aman</strong>
+        I'm <strong style={{ color: 'white' }}>Tarun</strong>
         {`
-           working as an independent fullstack developer with technologies such as Node.js, ReactJS, and React Native.
+           working as a fullstack developer with technologies such as Node.js, ReactJS, and React Native.
            I try to document and write tutorials to help JavaScript, Web and Mobile developers.
         `}
       </FlexText>
