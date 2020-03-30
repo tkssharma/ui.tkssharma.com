@@ -6,20 +6,14 @@ import theme from '../styles/theme'
 import Wrapper from './Wrapper'
 import Header from './Header'
 import Footer from './Footer'
+import SEO from './SEO';
 
 const Layout = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+
 
   return (
     <ThemeProvider theme={theme}>
+       <SEO />
       <Global />
       <Header />
       <Wrapper>{children}</Wrapper>
