@@ -65,7 +65,10 @@ const AboutMe = () => (
       I've written over 100 articles and tutorials for{' '}
       <span style={{ fontWeight: 'bold' }}>
         25 developer publications and organizational blogs
-      </span>
+      </span> <br/>
+      <a href="http://tkssharma.com">
+        My personal Website
+      </a>
     </p>
   </Wrapper>
 )
