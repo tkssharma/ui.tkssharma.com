@@ -1,5 +1,5 @@
 const config = require('./src/config/siteMetaData')
-import urljoin from 'url-join'
+const urljoin = require('url-join');
 
 module.exports = {
   pathPrefix: config.pathPrefix,
