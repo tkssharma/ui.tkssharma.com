@@ -13,7 +13,6 @@ lead: '2016-01-08'
 
 Everything you should know about Sass
 
-
 While CSS is getting powerful day by day, it still lacks certain features (such as code reuse) that makes it harder to maintain when the projects get bigger and more complex.
 
 There are many CSS methodologies (such as OOCSS, SMACSS) that help us write more maintainable CSS code, but these methodologies alone aren’t enough to solve the problem of maintaining large CSS codebases.

@@ -5,9 +5,7 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   plugins: [`gatsby-plugin-sitemap`],
   siteMetadata: {
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix)
-  },
-  siteMetadata: {
+    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
     title: config.siteTitle,
     description: config.siteDescription,
     twitterHandle: config.twitterHandle,
