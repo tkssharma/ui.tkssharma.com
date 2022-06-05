@@ -29,28 +29,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        // defaultLayouts: {
-        //   default: require.resolve('./src/components/layout.js'),
-        // },
-        extensions: ['.mdx', '.md', '.markdown'],
-
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1800,
-              linkImagesToOriginal: false,
-              withWebp: true,
-              loading: 'eager'
-            }
-          }
-        ],
-        plugins: [{ resolve: 'gatsby-remark-images' }]
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
