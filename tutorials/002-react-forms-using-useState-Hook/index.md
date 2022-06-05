@@ -11,7 +11,7 @@ lead: '2020-05-02'
 React Hooks 
 -----------
 
-Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes. (We don't recommend rewriting your existing components overnight but you can start using Hooks in the new ones if you'd like.)
+Hooks are functions that let you “hook into" React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes. (We don't recommend rewriting your existing components overnight but you can start using Hooks in the new ones if you'd like.)
 
 
 If you are reading this post, then you now know how to use the useState, useEffect, and the useContext hooks in your React App.
@@ -55,7 +55,7 @@ function Counter({initialCount}) {
   );
 }
 ```
-The ”+” and ”-” buttons use the functional form, because the updated value is based on the previous value. But the “Reset” button uses the normal form, because it always sets the count back to the initial value.
+The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the “Reset" button uses the normal form, because it always sets the count back to the initial value.
 
 If your update function returns the exact same value as the current state, the subsequent rerender will be skipped completely.
 

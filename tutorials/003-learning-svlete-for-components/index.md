@@ -155,7 +155,7 @@ Now that you have a first overview of the intial project structure we’re ready
 
 <h2>Hello World!</h2>
 
-This is a just a very simple component conisting of only one line of template code outputting the text “Hello World!” as a headline.
+This is a just a very simple component conisting of only one line of template code outputting the text “Hello World!" as a headline.
 
 To make use of that custom component and make the output visible in the browser we need to include the component in the main application component App component:
 ```html
@@ -252,7 +252,7 @@ In the following you can see a new component which is created in _src/LogIn.svel
 ```
 
 
-This component outputs a simple button. By clicking on the button the state changes from logged in to logged out. Depending on the state the button is displayed either with the text “Log out” (if the state is logged in) or “Log in” (if the state is logged out.
+This component outputs a simple button. By clicking on the button the state changes from logged in to logged out. Depending on the state the button is displayed either with the text “Log out" (if the state is logged in) or “Log in" (if the state is logged out.
 
 The state is tracked by a variable named user which is a boolean property of loggedIn. Depending on the value of that property the template is outputting the button with the corresponding text. This is controlled by using the `{#if [condititon]} ... {/if}` syntax in the template code.
 

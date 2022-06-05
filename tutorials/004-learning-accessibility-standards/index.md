@@ -40,7 +40,7 @@ What is Web Accessibility (A11y)
 
 Web Accessibility is the design of pages, tools and technologies on the web that can be used by everyone. Everyone here includes people with auditory, cognitive, neurological, physical, speech and visual disabilities. Accessibility support is necessary to allow assistive technology to interpret web pages and applications.
 
-A11y is a numero-nym that stands for _accessibility_ as “a” followed by 11 more letters, followed by “y”. Web development with accessibility in mind, ensures total inclusion of the entire population that use the web.
+A11y is a numero-nym that stands for _accessibility_ as “a" followed by 11 more letters, followed by “y". Web development with accessibility in mind, ensures total inclusion of the entire population that use the web.
 
 Why Web Accessibility
 =====================
@@ -49,8 +49,8 @@ Web Accessibility as a feature has been seen as a very wrong way of design think
 
 *   people using mobile phones, smart watches, smart TVs, and other devices with small screens, different input modes, etc.
 *   older people with changing abilities due to ageing.
-*   people with “temporary disabilities” such as a broken arm or lost glasses
-*   people with “situational limitations” such as in bright sunlight or in an environment where they cannot listen to audio
+*   people with “temporary disabilities" such as a broken arm or lost glasses
+*   people with “situational limitations" such as in bright sunlight or in an environment where they cannot listen to audio
 *   people using a slow Internet connection, or who have limited or expensive bandwidth
 
 Accessibility Standards and Guidelines
@@ -89,7 +89,7 @@ for becomes **htmlFor**class becomes **className**
 
 Setting the page title is another very powerful step to making your react application very accessible. It is actually crucial for screen readers, the page title is the first thing screen readers announce. It updates the content currently showing in the browser tab helping to announce exactly where the users (who might depend on screen readers) are in your application. It is also really great for search engine optimisation. It is done like this:
 
-componentDidMount() {  document.title = “this is the page title”;}
+componentDidMount() {  document.title = “this is the page title";}
 
 There is also a plugin you can use instead, [react-helmet](https://github.com/nfl/react-helmet) where you essentially handle head tags per page/component. This can be done like this:
 
@@ -118,7 +118,7 @@ class Application extends React.Component {
 
 To ensure that every code block of yours is going to be accessible, write good HTML code. We all make the quick button mistake:
 
-<div onClick={this.onClick}  className=”button”>   <span>Click on me</span></div>
+<div onClick={this.onClick}  className="button">   <span>Click on me</span></div>
 
 This would render a button, but it is not an accessible HTML button, a screen reader would not be able to interpret this. A more accessible and semantic code that does the same thing is this:
 
@@ -193,7 +193,7 @@ After the announcement component has been created, to use the live announcement 
 
 *   then set message, optimally at the point where the API or fetch logic is:
 
-`this.setState({  message: “this is currently happening mate!” });`
+`this.setState({  message: “this is currently happening mate!" });`
 
 *   finally, include the announcement component in the parent component like this:
 
@@ -212,7 +212,7 @@ Take a look at this sample template from [my react.lazy tutorial](/lazy-loading-
 <div> {artists.map(artist =>(  **<div>  
     <li>1. Davido</li>  
     <li>2. Burna Boy</li>  
-  </div>**  <div id=”card-body” key={artist.id}>   <h1>MTV Base Headline Artists 2019</h1>  </div> )}<div/>
+  </div>**  <div id="card-body" key={artist.id}>   <h1>MTV Base Headline Artists 2019</h1>  </div> )}<div/>
   ```
 
 The highlighted div actually really looks harmless but might result to non-semantic and sometimes invalid HTML and even creation of extra nodes like this when compiled back to HTML:
@@ -269,11 +269,11 @@ npm install eslint-plugin-jsx-a11y  -— save-dev
 
 *   Update your eslint.rc file’s plugin and extends sections in your code editor. For plugin section:
 ```javascript
-“plugin”: \[   “jsx-a11y” \]
+“plugin": \[   “jsx-a11y" \]
 ```
 In the extends section:
 ```javascript
-“extends”: \[  “plugin: jsx-a11y/recommended”\]
+“extends": \[  “plugin: jsx-a11y/recommended"\]
 ```
 
 References
