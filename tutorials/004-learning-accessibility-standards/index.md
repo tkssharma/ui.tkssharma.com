@@ -68,7 +68,7 @@ Barrier to Building Accessible JS Framework Apps..
 I would argue that the most dominant issue we have when trying to build accessible apps is caused by _developers writing non-semantic code_. Using JSX in inefficient ways that when compiled, the code would not be exactly semantic HTML. And we know that whenever there is non semantic HTML, assistive technologies like screen readers find it difficult to parse the content as it was intended. This process ends up in making the apps non-accessible.
 
 
-1\. Casing and Reserved Words
+1. Casing and Reserved Words
 =================================
 
 Writing semantic HTML in your React components would require that you pay attention to casing of attributes. In react, most HTML attributes are written in camel case.
@@ -77,14 +77,14 @@ maxlength becomes maxLengthtabindex becomes tabIndexcontenteditable becomes cont
 
 However, all `aria-*` HTML attributes are fully supported in JSX these attributes should be hyphen-cased kebab-cased as they are in plain HTML:
 
-  aria-label\={labelText}  
-  aria-required\="true"
+  aria-label={labelText}  
+  aria-required="true"
 
 For reserved words, we have that some reserved words mean entirely different things in HTML and in javascript words like class and for are practical examples, so in React we change them like thus:
 
 for becomes htmlForclass becomes className
 
-2\. Setting Page Titles
+2. Setting Page Titles
 ===========================
 
 Setting the page title is another very powerful step to making your react application very accessible. It is actually crucial for screen readers, the page title is the first thing screen readers announce. It updates the content currently showing in the browser tab helping to announce exactly where the users (who might depend on screen readers) are in your application. It is also really great for search engine optimisation. It is done like this:
@@ -113,7 +113,7 @@ class Application extends React.Component {
 };
 ```
 
-3\. Write Semantic HTML
+3. Write Semantic HTML
 =======================
 
 To ensure that every code block of yours is going to be accessible, write good HTML code. We all make the quick button mistake:
@@ -124,7 +124,7 @@ This would render a button, but it is not an accessible HTML button, a screen re
 
 <button onClick={this.onClick}>  Click on me</button>
 
-4\. Never Forget the text Alt of any content
+4. Never Forget the text Alt of any content
 ================================================
 
 This is very important for every non-text content. Text is the most optimal format for any content, so make sure to add text alternatives. For images, use the alt:
@@ -136,12 +136,12 @@ This is very important for every non-text content. Text is the most optimal form
 For user interfaces, use labels:
 
 ```html
-<div role="navigation" aria-label="Primary"\>  
+<div role="navigation" aria-label="Primary">  
   <ul>  
     <li>...a list of links here ...</li>  
   </ul>   
 </div>  
-<div role="navigation" aria-label="Secondary"\>  
+<div role="navigation" aria-label="Secondary">  
   <ul>  
    <li>...a list of links here ...</li>   
   </ul>  
@@ -149,7 +149,7 @@ For user interfaces, use labels:
 
 ```
 
-5\. Handling Headers
+5. Handling Headers
 ========================
 
 It is very important for assistive technologies like screen readers to use headers the way it was intended to be used and not in any other (confusing) form.
@@ -160,7 +160,7 @@ Anytime you are tempted to just bring in a h1 tag because of font, kindly head t
 
 > _Make text content readable and understandable and make Web pages appear and operate in predictable ways_ — Ire Aderinokun
 
-6\. Handling Live Announcements
+6. Handling Live Announcements
 ===================================
 
 If your React application fetches any data from any external source like an API, it makes sense to put some kind of structure in place for people using assistive technologies to be aware of the fetching of data going on. We can achieve this with live announcements. Here is a sample live announcement component:
@@ -201,7 +201,7 @@ After the announcement component has been created, to use the live announcement 
 
 This would now set up live announcements properly for screen readers at specified points of your code where fetching of data occurs.
 
-7\. Using Fragments
+7. Using Fragments
 ===================
 
 Fragments shipped with React 16.2.0, it allows you to group together a list of child elements without adding more nodes to the DOM. We know react component templates MUST always be wrapped with a HTML element for rendering to work correctly. This has made developers get really lazy and continuously wrap their code blocks with elements like divs (I used to always do this) We always end up with non-semantic HTML most times with the abuse of divs; remember how important semantic HTML is for accessibility.
@@ -250,7 +250,7 @@ For shortcut lovers like myself, there is an optional and simpler syntax for Rea
 
 It is JSX syntax and it looks neater yes!
 
-8\. Keyboard Focus with refs
+8. Keyboard Focus with refs
 ============================
 
 We can use ref functions to handle where we want the user to focus on in our application. As your react application is a single page application with routes, it is important that users with disabilities know when a new route renders in the DOM because screen readers are silent when routes change. A more modern type of ref was introduced with React 16.3.0 _React.createRef()_. Using the new ref, we can control the focus with the following steps:
@@ -269,11 +269,11 @@ npm install eslint-plugin-jsx-a11y  -— save-dev
 
 *   Update your eslint.rc file’s plugin and extends sections in your code editor. For plugin section:
 ```javascript
-“plugin": \[   “jsx-a11y" \]
+“plugin": [   “jsx-a11y" ]
 ```
 In the extends section:
 ```javascript
-“extends": \[  “plugin: jsx-a11y/recommended"\]
+“extends": [  “plugin: jsx-a11y/recommended"]
 ```
 
 References

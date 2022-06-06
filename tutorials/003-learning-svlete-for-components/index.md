@@ -51,7 +51,7 @@ Before running the project we need to make sure that all needed development depe
 
 `$ npm install`
 
-This command makes sure that all packages listed in the _devDependencies_ in _package.json_ are being installed into the _node\_modules_ folder. In the following listing you can see the _devDependencies_ section of _package.json_:
+This command makes sure that all packages listed in the _devDependencies_ in _package.json_ are being installed into the _node_modules_ folder. In the following listing you can see the _devDependencies_ section of _package.json_:
 
 ```json
 
@@ -89,7 +89,7 @@ Now that we have a running first Svelte project let’s take a closer look at th
 
 ![](https://miro.medium.com/max/1100/0*KF_0WxMEIhplore-.png)
 
-First we can see that a _node\_modules_ folder is included. This folder is containing all packages which have been listed in the _devDependencies_ section in _package.json_.
+First we can see that a _node_modules_ folder is included. This folder is containing all packages which have been listed in the _devDependencies_ section in _package.json_.
 
 The folder _public_ is containing the output of the compilation which is performed by Svelte. A _bundle.js_ and _bundle.css_ file is available containing the optimized JavaScript and CSS code. You’ll also find the file index.html file in which the JavaScript code of _bundle.js_ is included:
 
@@ -194,26 +194,26 @@ Each component is able to receive data through components. To add components to 
 
 ```javascript
 <script>  
-    export let first\_name;  
-    export let last\_name;
+    export let first_name;  
+    export let last_name;
 </script>
 ```
 
 Also change the template code to:
 
-<h2>Hello {first\_name} {last\_name}</h2>
+<h2>Hello {first_name} {last_name}</h2>
 
 With these changes in place you’re ready pass in values when the component is being used in _App.svelte:_
 
-<Greeting first\_name="Steve" last\_name="Smith"/>
+<Greeting first_name="Steve" last_name="Smith"/>
 
 Furthermore Svelte is supporting computed properties as well. In the following you can see that a computed property _name_ is added:
 
 ```javascript
 
 <script>  
-    export let first\_name;  
-    export let last\_name;    $: name = first\_name + " " + last\_name;   
+    export let first_name;  
+    export let last_name;    $: name = first_name + " " + last_name;   
 </script><style>  
     h2 {   
         color: purple;  
@@ -224,7 +224,7 @@ Furthermore Svelte is supporting computed properties as well. In the following y
 
 ```
 
-Computed properties are fully reactive. That means if some of the depending variables are changing (_first\_name_ or _last\_name_) the value for name is updated automatically.
+Computed properties are fully reactive. That means if some of the depending variables are changing (_first_name_ or _last_name_) the value for name is updated automatically.
 
 Logic
 =====
@@ -293,12 +293,12 @@ Svelte gives you access to another template element which makes it easy to gener
 
 ```javascript
 <script>  
-    let frameworks = \[  
+    let frameworks = [  
         {id: 1, name: 'Svelte'},  
         {id: 2, name: 'Angular'},  
         {id: 3, name: 'React'},  
         {id: 4, name: 'Vue'}  
-    \]  
+    ]  
 </script><h1>List of Frameworks</h1><ul>  
     {#each frameworks as {id, name}}  
         <li>  
