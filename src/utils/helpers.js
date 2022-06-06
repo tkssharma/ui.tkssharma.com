@@ -49,7 +49,7 @@ export function appendComments(commentBox) {
 
   commentScript.async = true
   commentScript.src = 'https://utteranc.es/client.js'
-  commentScript.setAttribute('repo', 'tkssharma.com/comments')
+  commentScript.setAttribute('repo', 'tkssharma/comments')
   commentScript.setAttribute('issue-term', 'pathname')
   commentScript.setAttribute('id', 'utterances')
   commentScript.setAttribute('theme', theme)
