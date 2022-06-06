@@ -58,9 +58,9 @@ Accessibility Standards and Guidelines
 
 These are guidelines that govern how accessibility is achieved while building for and using the web. These ensure that there is support for screen readers, keyboard usability and captions for photos. Some of them are:
 
-**WCAG**: The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites. WCAG is developed through the W3C process in cooperation with individuals and organisations around the world, with a goal of providing a single shared standard for web content accessibility that meets the needs of individuals, organisations, and governments internationally.
+WCAG: The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites. WCAG is developed through the W3C process in cooperation with individuals and organisations around the world, with a goal of providing a single shared standard for web content accessibility that meets the needs of individuals, organisations, and governments internationally.
 
-**WAI-ARIA**: The [Web Accessibility Initiative — Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies like React.
+WAI-ARIA: The [Web Accessibility Initiative — Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) document contains techniques for building fully accessible JavaScript widgets. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies like React.
 
 Barrier to Building Accessible JS Framework Apps..
 ==================================================
@@ -68,23 +68,23 @@ Barrier to Building Accessible JS Framework Apps..
 I would argue that the most dominant issue we have when trying to build accessible apps is caused by _developers writing non-semantic code_. Using JSX in inefficient ways that when compiled, the code would not be exactly semantic HTML. And we know that whenever there is non semantic HTML, assistive technologies like screen readers find it difficult to parse the content as it was intended. This process ends up in making the apps non-accessible.
 
 
-**1\. Casing and Reserved Words**
+1\. Casing and Reserved Words
 =================================
 
 Writing semantic HTML in your React components would require that you pay attention to casing of attributes. In react, most HTML attributes are written in camel case.
 
-maxlength becomes **maxLength**tabindex becomes **tabIndex**contenteditable becomes **contentEditable**  
+maxlength becomes maxLengthtabindex becomes tabIndexcontenteditable becomes contentEditable  
 
 However, all `aria-*` HTML attributes are fully supported in JSX these attributes should be hyphen-cased kebab-cased as they are in plain HTML:
 
-  **aria-label**\={labelText}  
-  **aria-required**\="true"
+  aria-label\={labelText}  
+  aria-required\="true"
 
 For reserved words, we have that some reserved words mean entirely different things in HTML and in javascript words like class and for are practical examples, so in React we change them like thus:
 
-for becomes **htmlFor**class becomes **className**
+for becomes htmlForclass becomes className
 
-**2\. Setting Page Titles**
+2\. Setting Page Titles
 ===========================
 
 Setting the page title is another very powerful step to making your react application very accessible. It is actually crucial for screen readers, the page title is the first thing screen readers announce. It updates the content currently showing in the browser tab helping to announce exactly where the users (who might depend on screen readers) are in your application. It is also really great for search engine optimisation. It is done like this:
@@ -103,7 +103,7 @@ class Application extends React.Component {
         <div className="application">  
             <Helmet>  
                 <meta charSet="utf-8" />  
-                **<title>My Title</title>**  
+                <title>My Title</title>  
                 <link rel="canonical" href="http://mysite.com/example" />  
             </Helmet>  
             ...  
@@ -124,24 +124,24 @@ This would render a button, but it is not an accessible HTML button, a screen re
 
 <button onClick={this.onClick}>  Click on me</button>
 
-**4\. Never Forget the text Alt of any content**
+4\. Never Forget the text Alt of any content
 ================================================
 
 This is very important for every non-text content. Text is the most optimal format for any content, so make sure to add text alternatives. For images, use the alt:
 
-<img src="apple.png" **alt=" A big picture of an Apple "** />
+<img src="apple.png" alt=" A big picture of an Apple " />
 
 > All non-text content that is presented to the user has a text alternative that serves the equivalent purpose — Ire Aderinokun
 
 For user interfaces, use labels:
 
 ```html
-<div role="navigation" **aria-label="Primary"**\>  
+<div role="navigation" aria-label="Primary"\>  
   <ul>  
     <li>...a list of links here ...</li>  
   </ul>   
 </div>  
-<div role="navigation" **aria-label="Secondary"**\>  
+<div role="navigation" aria-label="Secondary"\>  
   <ul>  
    <li>...a list of links here ...</li>   
   </ul>  
@@ -149,7 +149,7 @@ For user interfaces, use labels:
 
 ```
 
-**5\. Handling Headers**
+5\. Handling Headers
 ========================
 
 It is very important for assistive technologies like screen readers to use headers the way it was intended to be used and not in any other (confusing) form.
@@ -160,7 +160,7 @@ Anytime you are tempted to just bring in a h1 tag because of font, kindly head t
 
 > _Make text content readable and understandable and make Web pages appear and operate in predictable ways_ — Ire Aderinokun
 
-6\. **Handling Live Announcements**
+6\. Handling Live Announcements
 ===================================
 
 If your React application fetches any data from any external source like an API, it makes sense to put some kind of structure in place for people using assistive technologies to be aware of the fetching of data going on. We can achieve this with live announcements. Here is a sample live announcement component:
@@ -209,10 +209,10 @@ Fragments shipped with React 16.2.0, it allows you to group together a list of c
 Take a look at this sample template from [my react.lazy tutorial](/lazy-loading-react-components-with-react-lazy-and-suspense-f05c4cfde10c)
 
 ```html
-<div> {artists.map(artist =>(  **<div>  
+<div> {artists.map(artist =>(  <div>  
     <li>1. Davido</li>  
     <li>2. Burna Boy</li>  
-  </div>**  <div id="card-body" key={artist.id}>   <h1>MTV Base Headline Artists 2019</h1>  </div> )}<div/>
+  </div>  <div id="card-body" key={artist.id}>   <h1>MTV Base Headline Artists 2019</h1>  </div> )}<div/>
   ```
 
 The highlighted div actually really looks harmless but might result to non-semantic and sometimes invalid HTML and even creation of extra nodes like this when compiled back to HTML:
