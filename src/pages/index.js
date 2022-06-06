@@ -1,187 +1,154 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import Card from '../components/Card'
-import Grid from '../components/Grid'
-import HeaderIntro from '../components/HeaderIntro'
-import { HeaderWrapper, HeaderGroup } from '../components/Header'
-import AboutMe from '../components/AboutMe'
-import Newsletter from '../components/Newsletter'
+import Helmet from 'react-helmet'
 
-const Icon = styled.div`
-  width: 60px;
-  margin: auto;
-  margin-bottom: 25px;
-  animation: HeroAnimation 3s 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
-  opacity: 0;
-  :hover {
-    filter: brightness(1.1) saturate(110%);
-  }
-`
+import { Layout } from '../components/Layout'
+import { Posts } from '../components/Posts'
+import { SEO } from '../components/SEO'
+import { getSimplifiedPosts } from '../utils/helpers'
+import config from '../utils/config'
+import github from '../assets/nav-github.png'
+import floppy from '../assets/nav-floppy.png'
+import looking from '../assets/me.jpg'
 
-const TitlePadding = styled.div`
-  padding: 5px;
-`
-const TitleWrapper = styled.div`
-  max-width: ${props => props.theme.screen.sm};
-  margin: auto;
-  h3 {
-    display: flex;
-    align-items: center;
-    border-bottom: 0;
-    padding-bottom: 0;
-    line-height: 0;
-  }
-  a {
-    margin: 0 10px;
-  }
-  button {
-    background: ${props => props.theme.color.primary.purple};
-    display: inline-block;
-    padding: 6px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    color: white;
-    opacity: 0.9;
-    .dark & {
-      background: ${props => props.theme.color.primary.purple};
-      color: ${props => props.theme.color.dark.accent100};
+export default function WebsiteIndex({ data }) {
+  const [followers, setFollowers] = useState(null)
+  const latest = data.latest.edges
+  const highlights = data.highlights.edges
+  const simplifiedLatest = useMemo(() => getSimplifiedPosts(latest), [latest])
+  const simplifiedHighlights = useMemo(
+    () =>
+      getSimplifiedPosts(highlights, { shortTitle: true, thumbnails: true }),
+    [highlights]
+  )
+
+  useEffect(() => {
+    async function getGithubAPI() {
+      const response = await fetch('https://api.github.com/users/tkssharma')
+      const data = await response.json()
+
+      return data
     }
-  }
-  button:hover {
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    opacity: 1;
-  }
-  @media (max-width: 680px) {
-    h2 {
-      font-size: 1.3rem;
-    }
-  }
-`
 
-const IntroHeader = () => (
-  <HeaderWrapper>
-    <HeaderGroup>
-      <HeaderIntro />
-    </HeaderGroup>
-  </HeaderWrapper>
-)
+    getGithubAPI().then((data) => {
+      setFollowers(data.followers)
+    })
+  }, [])
 
-const IndexPage = ({ data }) => {
-  const { edges: tutorials } = data.allMdx
   return (
-    <Layout>
-      <IntroHeader />
-      <TitlePadding>
-        <TitleWrapper>
-          <h3>
-            Latest Tutorials{' '}
-            <Link to="/tutorials">
-              <button>View All</button>
-            </Link>
-          </h3>
-        </TitleWrapper>
-      </TitlePadding>
-      <Grid>
-        {tutorials.map(({ node: tutorial }) => (
-          <Link
-            key={tutorial.id}
-            to={`/tutorials/${tutorial.frontmatter.slug}`}
-          >
-            <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTags={tutorial.frontmatter.tags}
-              tutorialTitle={tutorial.frontmatter.title}
-            />
-          </Link>
-        ))}
-      </Grid>
-      <AboutMe />
-      <Newsletter />
-    </Layout>
+    <>
+      <Helmet title={config.siteTitle} />
+      <SEO />
+
+      <article className="hero">
+        <header>
+          <div className="container">
+            <div className="flex-content">
+              <div>
+                <h1>Hey, I'm Tarun (@tkssharma)</h1>
+                <p className="subtitle small">
+                  I'm a full stack software developer creating open source projects and writing about modern JavaScript client-side and server side. Working remotely from India.
+                </p>
+              </div>
+              <img src={looking} alt="Me" className="main-image" />
+            </div>
+            <p className="hero-buttons">
+              <Link to="/me" className="hero-button">
+                <img src={floppy} alt="Me" />
+                More about me
+              </Link>
+              {followers && (
+                <a
+                  href="https://github.com/tkssharma"
+                  target="_blank"
+                  className="hero-button"
+                  rel="noreferrer"
+                >
+                  <img src={github} alt="GitHub" />
+                  <span className="bright">
+                    {Number(followers).toLocaleString()}
+                  </span>
+                  {' followers on GitHub'}
+                </a>
+              )}
+            </p>
+          </div>
+        </header>
+
+        <div className="container">
+          <h2 className="main-header">
+            <span>Latest Articles</span> <Link to="/blog">View All</Link>
+          </h2>
+          <Posts data={simplifiedLatest} />
+
+          <h2 className="main-header">
+            <span>Highlights</span> <Link to="/blog">View All</Link>
+          </h2>
+          <Posts data={simplifiedHighlights} yearOnly />
+
+          <h2 className="main-header">Newsletter</h2>
+          <div className="flex-content">
+            <p>
+              Subscribe to the newsletter to get my latest content by email. Not
+              on any set schedule. Unsubscribe anytime.
+            </p>
+            <p className="hero-buttons">
+              <a
+                href="https://tkssharma.substack.com/subscribe"
+                className="button"
+              >
+                Subscribe
+              </a>
+            </p>
+          </div>
+        </div>
+      </article>
+    </>
   )
 }
 
-export const pageQuery = graphql`
-  query IndexPage {
-    allMdx(
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//tutorials//" } }
-      limit: 5
-    ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            slug
-            tags
-            tutorialID
-            lead
-            image {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            icon {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    featuredPost: allMdx(
-      sort: { fields: frontmatter___tutorialID, order: DESC }
-      filter: { fileAbsolutePath: { regex: "//tutorials//" } }
-      limit: 1
-    ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            slug
-            tags
-            tutorialID
-            lead
+WebsiteIndex.Layout = Layout
 
-            image {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            icon {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
+export const pageQuery = graphql`
+  query IndexQuery {
+    latest: allMarkdownRemark(
+      limit: 7
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { template: { eq: "post" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
           }
         }
       }
     }
-    placeholderImage2: file(relativePath: { eq: "lauro.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
+    highlights: allMarkdownRemark(
+      limit: 99
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { categories: { eq: "Highlight" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            shortTitle
+            tags
+          }
         }
       }
     }
   }
 `
-
-export default IndexPage

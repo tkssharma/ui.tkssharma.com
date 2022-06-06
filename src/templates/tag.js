@@ -1,66 +1,67 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Grid from '../components/Grid'
-import Card from '../components/Card'
+import React, { useMemo } from 'react'
+import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
-const Tags = ({ pageContext, data }) => {
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
+import { Posts } from '../components/Posts'
+import { getSimplifiedPosts } from '../utils/helpers'
+import config from '../utils/config'
+
+export default function TagTemplate({ data, pageContext }) {
   const { tag } = pageContext
-  const { edges: tutorials } = data.allMdx
+  const { totalCount } = data.allMarkdownRemark
+  const posts = data.allMarkdownRemark.edges
+  const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
+  const message = totalCount === 1 ? ' post found.' : ' posts found.'
 
   return (
-    <Layout>
+    <>
+      <Helmet title={`Posts tagged: ${tag} | ${config.siteTitle}`} />
+      <SEO />
 
-      <Grid>
-        {tutorials.map(({ node: tutorial }) => (
-          <Link
-            key={tutorial.id}
-            to={`/tutorials/${tutorial.frontmatter.slug}`}
-          >
-            <Card
-              tutorialIcon={tutorial.frontmatter.icon.sharp.fluid}
-              tutorialTags={tutorial.frontmatter.tags}
-              tutorialTitle={tutorial.frontmatter.title}
-            />
-          </Link>
-        ))}
-      </Grid>
-    </Layout>
+      <article>
+        <header>
+          <div className="container">
+            <h1>
+              <span>Posts tagged:</span>{' '}
+              <span className="primary-underline">{tag}</span>
+            </h1>
+            <p className="description">
+              <span className="count bright">{totalCount}</span>
+              {message}
+            </p>
+          </div>
+        </header>
+
+        <section className="container">
+          <Posts data={simplifiedPosts} />
+        </section>
+      </article>
+    </>
   )
 }
 
-export default Tags
+TagTemplate.Layout = Layout
 
 export const pageQuery = graphql`
-  query($tag: String) {
-    allMdx(
-      limit: 2000
-      sort: { fields: frontmatter___tutorialID, order: DESC }
+  query TagPage($tag: String) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
         node {
           id
-          frontmatter {
-            title
+          fields {
             slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
             tags
-            tutorialID
-            image {
-              sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            icon {
-              sharp: childImageSharp {
-                fluid(maxWidth: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
+            categories
           }
         }
       }

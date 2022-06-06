@@ -1,20 +1,10 @@
-# tkssharma.dev
+# design.tkssharma.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/351e62e0-567e-4767-8ac8-ba84b5b701a1/deploy-status)](https://app.netlify.com/sites/stoic-leavitt-8f4535/deploys)
+**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend using the [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/) to set up a blog or an existing theme created for that purpose.
 
-A personal website where I keep information about myself and all of my blog posts. I have written for over 25+ tech publications and over 100+ posts. This website is an alternate platform to the collection.
 
-## Features
-
-- [MDX: JavaScript/React in Markdown](https://www.gatsbyjs.org/docs/mdx/)
-- [Prism.js: Syntax Highlighting](https://prismjs.com/)
-- [styled-components](https://www.styled-components.com/)
-- [react-icons](https://react-icons.netlify.com/)
-
-## Special Thanks
-
-Special thanks to Lauro Silva's [tweet](https://twitter.com/laurosilvacom/status/1234354925305352193) and Monica.dev's [blog post](https://t.co/kYSj9cbjAS?amp=1) this website has search functionality.
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F1GNP8)
 
 ## License
 
-Copyright (c) 2019 Tarun Sharma
+This project is open source and available under the [MIT License](LICENSE).

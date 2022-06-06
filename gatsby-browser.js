@@ -1,7 +1,9 @@
-import React from 'react'
+require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
-import { ThemeProvider } from './src/context/ThemeContext'
+const React = require('react')
 
-export const wrapRootElement = ({ element }) => (
-  <ThemeProvider>{element}</ThemeProvider>
-)
+export function wrapPageElement({ element, props }) {
+  const Layout = element.type.Layout ?? React.Fragment
+
+  return <Layout {...props}>{element}</Layout>
+}

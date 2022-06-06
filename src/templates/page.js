@@ -1,36 +1,51 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Layout from '../components/Layout'
-import Content from '../components/Content'
+import Helmet from 'react-helmet'
 
-const PagesTemplate = ({ data: { mdx: page } }) => (
-  <Layout>
-    <Content>
-      <MDXRenderer>{page.body}</MDXRenderer>
-    </Content>
-  </Layout>
-)
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
+import config from '../utils/config'
 
-export default PagesTemplate
+export default function PageTemplate({ data }) {
+  const post = data.markdownRemark
+  const { title, description, slug } = post.frontmatter
 
-export const query = graphql`
-  query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 160)
+  return (
+    <>
+      <Helmet
+        title={`${title === 'Tarun Sharma' ? 'Resume' : title} | ${config.siteTitle
+          }`}
+      />
+      <SEO />
+
+      <article id={slug}>
+        <header>
+          <div className="container">
+            <h1>{title}</h1>
+            <p className="description">{description}</p>
+          </div>
+        </header>
+
+        <section
+          className="container"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
+    </>
+  )
+}
+
+PageTemplate.Layout = Layout
+
+export const pageQuery = graphql`
+  query PageBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
       frontmatter {
         title
+        description
         slug
-        lead
-        image {
-          sharp: childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
-      body
     }
   }
 `

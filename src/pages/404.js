@@ -1,16 +1,33 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import Layout from '../components/Layout'
+import Helmet from 'react-helmet'
 
-const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    <p>Consider returning to back to the Home page.</p>
-    <Link to="/" aria-label="go to home page">
-      Go back to the home page
-    </Link>
-  </Layout>
-)
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
+import config from '../utils/config'
+import floppy from '../assets/nav-floppy.png'
 
-export default NotFoundPage
+export default function FourOhFour() {
+  return (
+    <>
+      <Helmet title={`404 | ${config.siteTitle}`} />
+      <SEO />
+
+      <article>
+        <header>
+          <div className="container">
+            <h1>404</h1>
+            <p className="description">This was probably a mistake.</p>
+          </div>
+        </header>
+
+        <section>
+          <div className="container">
+            <img src={floppy} alt="404" className="not-found-image" />
+          </div>
+        </section>
+      </article>
+    </>
+  )
+}
+
+FourOhFour.Layout = Layout
