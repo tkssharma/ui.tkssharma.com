@@ -488,11 +488,3 @@ We have learned what Sass is, how to install it locally and discussed it’s fea
 Using Sass, we can perform basic calculations, reuse code using mixins, and create functions. Sass makes maintenance of CSS so much easier in bigger projects.
 
 That’s it and if you found this article helpful, please click the clap 👏button, you can also follow me on [Medium](https://medium.com/@tkssharma) and [Twitter](https://twitter.com/tkssharma), and if you have any doubt, feel free to comment! I’d be happy to help :)
-
-## Learn more
-[**5 Tools for Faster Development in React**
-*5 tools to speed the development of your React application, focusing on components.*blog.bitsrc.io](https://blog.bitsrc.io/5-tools-for-faster-development-in-react-676f134050f2)
-[**5 Ways to Style React Components in 2019**
-*Making sense of styling React components in 2019 in a short yet detailed review*blog.bitsrc.io](https://blog.bitsrc.io/5-ways-to-style-react-components-in-2019-30f1ccc2b5b)
-[**11 React UI Component Libraries you Should Know in 2018**
-*11 React component libraries with great components for building your next app’s UI interface in 2018.*blog.bitsrc.io](https://blog.bitsrc.io/11-react-component-libraries-you-should-know-178eb1dd6aa4)
