@@ -142,10 +142,6 @@ export default App;
 
 ```
 
-
-resultconsole
-
-Refresh results pane
 I don't expect you to read every line of code here, so here are the relevant highlights:
 
 *   We have a single piece of state, a number called `selectedNum`.
@@ -248,9 +244,6 @@ Our application now has two pieces of state, `selectedNum` and `time`. Once per 
 
 **Here's the issue:** whenever _either_ of these state variables change, we re-run all of those expensive prime-number computations. And because `time` changes once per second, it means we're _constantly_ re-generating that list of primes, even when the user's selected number hasn't changed!
 
-![](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27714%27%20height=%27332%27/%3e)![Labeled screenshot of the code above, showing how whenever the time value changes, the prime numbers have to be recalculated](/_next/image/?url=%2Fimages%2Fusememo-and-usecallback%2Fclock-prime.png%3Fv%3D2&w=1920&q=75)
-
-![Labeled screenshot of the code above, showing how whenever the time value changes, the prime numbers have to be recalculated](/_next/image/?url=%2Fimages%2Fusememo-and-usecallback%2Fclock-prime.png%3Fv%3D2&w=1920&q=75)
 
 In JavaScript, we only have one main thread, and we're keeping it _super_ busy by running this code over and over, every single second. It means that the application might feel sluggish as the user tries to do other things, especially on lower-end devices.
 
@@ -292,7 +285,8 @@ const allPrimes = React.useMemo(() => {
 
 ```
 
-`useMemo` takes two arguments:
+ `useMemo` takes two arguments:
+===================================
 
 1.  A chunk of work to be performed, wrapped up in a function
 2.  A list of dependencies
@@ -400,11 +394,9 @@ function isPrime(n){
 
 export default App;
 ```
-
-
-
-
 An alternative approach
+========================
+
 
 So, the `useMemo` hook can indeed help us avoid unnecessary calculations here… but is it _really_ the best solution here?
 
@@ -503,6 +495,8 @@ export default App;
 ```
 
 Pure Component
+================
+
 
 Like a force field, `React.memo` wraps around our component and protects it from unrelated updates. Our `PurePrimeCalculator` will only re-render when it receives new data, or when its internal state changes.
 
