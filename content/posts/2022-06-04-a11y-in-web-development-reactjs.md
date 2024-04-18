@@ -4,8 +4,8 @@ title: 'learning accessibility standards reactjs'
 shortTitle: 'learning accessibility standards reactjs'
 description: 'learning accessibility standards reactjs'
 template: post
-featuredImage: '../thumbnails/reactjs.png'
-thumbnail: '../thumbnails/reactjs.png'
+featuredImage: '../thumbnails/react.png'
+thumbnail: '../thumbnails/react.png'
 slug: web-accessibility-a11y-using-reactjs
 categories:
   - a11y

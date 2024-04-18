@@ -4,8 +4,8 @@ title: 'Build design system with reactjs'
 shortTitle: 'Build design system with reactjs'
 description: 'Build design system with reactjs'
 template: post
-featuredImage: '../thumbnails/reactjs.png'
-thumbnail: '../thumbnails/reactjs.png'
+featuredImage: '../thumbnails/react.png'
+thumbnail: '../thumbnails/react.png'
 slug: build-design-system-with-reactjs
 categories:
   - a11y

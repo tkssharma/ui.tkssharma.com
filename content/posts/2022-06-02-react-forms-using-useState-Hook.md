@@ -4,8 +4,8 @@ title: 'Using React Hooks for Your Forms with Validation'
 shortTitle: 'Using React Hooks for Your Forms with Validation'
 description: 'Using React Hooks for Your Forms with Validation'
 template: post
-featuredImage: '../thumbnails/reactjs.png'
-thumbnail: '../thumbnails/reactjs.png'
+featuredImage: '../thumbnails/react.png'
+thumbnail: '../thumbnails/react.png'
 slug: using-react-hook-forms-for-validation
 categories:
   - reactjs 
